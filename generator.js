@@ -16,7 +16,7 @@ class generator {
     }
 
     get types() {
-        return ['circle'];
+        return ['circle', 'square'];
     }
 
     get colors() {
@@ -29,11 +29,18 @@ class generator {
             let ti = Math.floor((Math.random() * this.types.length));
 
             for (let j = 0; j <= Math.floor((Math.random() * this.columns)); j++) {
-                let e = document.createElementNS('http://www.w3.org/2000/svg', this.types[ti]);
-
+                let c = this.colors[Math.floor((Math.random() * this.colors.length))];
+                let x = j * (this.size + this.distance) * 2;
+                let y = i * (this.size + this.distance) * 2;
+                
+                let e;
                 switch (ti) {
                     case 0: {
-                        e = circle.create(e, this.colors[Math.floor((Math.random() * this.colors.length))], j * (this.size + this.distance) * 2, i * (this.size + this.distance) * 2, this.size);
+                        e = circle.create(c, x, y, this.size);
+                        break;
+                    }
+                    case 1: {
+                        e = square.create(c, x - this.size, y - this.size, this.size * 2);
                         break;
                     }
                 }

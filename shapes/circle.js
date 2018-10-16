@@ -1,5 +1,6 @@
 class circle {
-    static create(e, c, x, y, r) {
+    static create(c, x, y, r) {
+        let e = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
         e.setAttributeNS(null, 'r', r);
         e.setAttributeNS(null, 'cx', x);
         e.setAttributeNS(null, 'cy', y);
