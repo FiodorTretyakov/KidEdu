@@ -7,8 +7,12 @@ class generator {
         return 15;
     }
 
-    get max() {
+    get columns() {
         return 10;
+    }
+
+    get rows() {
+        return 6;
     }
 
     get types() {
@@ -20,20 +24,22 @@ class generator {
     }
 
     createLayout() {
-        const ti = Math.floor((Math.random() * this.types.length));
-
         let results = [];
-        for (let i = 0; i <= Math.floor((Math.random() * this.max)); i++) {
-            let e = document.createElementNS('http://www.w3.org/2000/svg', this.types[ti]);
-            
-            switch (ti) {
-                case 0: {
-                    e = circle.create(e, this.colors[Math.floor((Math.random() * this.colors.length))], i * (this.size + this.distance) * 2, 0, this.size);
-                    break;
+        for (let i = 0; i < this.rows; i++) {
+            let ti = Math.floor((Math.random() * this.types.length));
+
+            for (let j = 0; j <= Math.floor((Math.random() * this.columns)); j++) {
+                let e = document.createElementNS('http://www.w3.org/2000/svg', this.types[ti]);
+
+                switch (ti) {
+                    case 0: {
+                        e = circle.create(e, this.colors[Math.floor((Math.random() * this.colors.length))], j * (this.size + this.distance) * 2, i * (this.size + this.distance) * 2, this.size);
+                        break;
+                    }
                 }
+
+                results.push(e);
             }
-            
-            results.push(e);
         }
 
         return results;
