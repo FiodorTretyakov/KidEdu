@@ -1,4 +1,16 @@
 class generator {
+    get size() {
+        return 38;
+    }
+
+    get distance() {
+        return 15;
+    }
+
+    get max() {
+        return 10;
+    }
+
     get types() {
         return ['circle'];
     }
@@ -7,25 +19,21 @@ class generator {
         return ['red', 'yellow', 'cyan', 'blue', 'magenta'];
     }
 
-    createElement(t, c, x, y, r) {
-        let count = Math.floor((Math.random() * 10) + 1);
-
-        let e = document.createElementNS('http://www.w3.org/2000/svg', t);
-        e.setAttributeNS(null, 'r', r);
-        e.setAttributeNS(null, 'cx', x);
-        e.setAttributeNS(null, 'cy', y);
-        e.setAttributeNS(null, 'fill', c);
-
-        return e;
-    }
-
     createLayout() {
-        const type = this.types[Math.floor((Math.random() * this.types.length))];
+        const ti = Math.floor((Math.random() * this.types.length));
 
         let results = [];
-        const r = 50;
-        for (let i = 0; i <= Math.floor((Math.random() * 10)); i++) {
-            results.push(this.createElement(type, this.colors[Math.floor((Math.random() * this.colors.length))], r, (i + 1) * r * 2, r));
+        for (let i = 0; i <= Math.floor((Math.random() * this.max)); i++) {
+            let e = document.createElementNS('http://www.w3.org/2000/svg', this.types[ti]);
+            
+            switch (ti) {
+                case 0: {
+                    e = circle.create(e, this.colors[Math.floor((Math.random() * this.colors.length))], i * (this.size + this.distance) * 2, 0, this.size);
+                    break;
+                }
+            }
+            
+            results.push(e);
         }
 
         return results;
