@@ -1,1 +1,2 @@
 # kidedu
+//TODO: pattern generator

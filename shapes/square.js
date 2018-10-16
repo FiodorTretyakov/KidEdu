@@ -1,12 +1,9 @@
-class square {
-    static create(c, x, y, r) {
-        let e = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
-        e.setAttributeNS(null, 'width', r);
-        e.setAttributeNS(null, 'height', r);
-        e.setAttributeNS(null, 'x', x);
-        e.setAttributeNS(null, 'y', y);
-        e.setAttributeNS(null, 'fill', c);
-
-        return e;
+class square extends shape {
+    constructor(c, x, y, r) {
+        super('rect', c);
+        this.e.setAttributeNS(null, 'width', r);
+        this.e.setAttributeNS(null, 'height', r);
+        this.e.setAttributeNS(null, 'x', x);
+        this.e.setAttributeNS(null, 'y', y);
     }
 }

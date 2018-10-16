@@ -16,7 +16,7 @@ class generator {
     }
 
     get types() {
-        return ['circle', 'square'];
+        return ['circle', 'square', 'triangle'];
     }
 
     get colors() {
@@ -30,22 +30,30 @@ class generator {
 
             for (let j = 0; j <= Math.floor((Math.random() * this.columns)); j++) {
                 let c = this.colors[Math.floor((Math.random() * this.colors.length))];
-                let x = j * (this.size + this.distance) * 2;
-                let y = i * (this.size + this.distance) * 2;
-                
+                let b = (this.size + this.distance) * 2;
+                let x = j * b;
+                let y = i * b;
+
                 let e;
                 switch (ti) {
                     case 0: {
-                        e = circle.create(c, x, y, this.size);
+                        e = new circle(c, x, y, this.size);
                         break;
                     }
                     case 1: {
-                        e = square.create(c, x - this.size, y - this.size, this.size * 2);
+                        e = new square(c, x - this.size, y - this.size, this.size * 2);
+                        break;
+                    }
+                    case 2: {
+                        e = new polygon(c, [
+                            new point(x - this.size, y + this.size),
+                            new point(x, y - this.size),
+                            new point(x + this.size, y + this.size)]);
                         break;
                     }
                 }
 
-                results.push(e);
+                results.push(e.element);
             }
         }
 
