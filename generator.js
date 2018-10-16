@@ -16,7 +16,7 @@ class generator {
     }
 
     get types() {
-        return ['circle', 'square', 'triangle'];
+        return ['circle', 'square', 'triangle', 'pentagon'];
     }
 
     get colors() {
@@ -41,7 +41,10 @@ class generator {
                         break;
                     }
                     case 1: {
-                        e = new square(c, x - this.size, y - this.size, this.size * 2);
+                        e = new square(c,
+                            x - this.size,
+                            y - this.size,
+                            this.size * 2);
                         break;
                     }
                     case 2: {
@@ -49,6 +52,15 @@ class generator {
                             new point(x - this.size, y + this.size),
                             new point(x, y - this.size),
                             new point(x + this.size, y + this.size)]);
+                        break;
+                    }
+                    case 3: {
+                        e = new polygon(c, [
+                            new point(x - this.size / 2, y + this.size),
+                            new point(x + this.size / 2, y + this.size),
+                            new point(x + this.size, y),
+                            new point(x, y - this.size),
+                            new point(x - this.size, y)]);
                         break;
                     }
                 }
