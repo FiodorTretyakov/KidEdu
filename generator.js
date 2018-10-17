@@ -25,7 +25,14 @@ class generator {
     }
 
     get colors() {
-        return ['red', 'yellow', 'cyan', 'blue', 'magenta'];
+        return ['AntiqueWhite', 'Aqua', 'Aquamarine', 'Black', 'Blue',
+            'BlueViolet', 'Brown', 'BurlyWood', 'CadetBlue', 'Chartreuse',
+            'Chocolate', 'Coral', 'CornflowerBlue', 'Crimson', 'Cyan',
+            'DarkBlue', 'DarkCyan', 'DarkGoldenRod', 'DarkGray', 'DarkGreen',
+            'DarkKhaki', 'DarkMagenta', 'DarkOliveGreen', 'DarkOrange', 'DarkOrchid',
+            'DarkRed', 'DarkSalmon', 'DarkSeaGreen', 'DarkSlateBlue', 'DarkSlateGray',
+            'DarkTurquoise', 'DarkViolet', 'DeepPink', 'DeepSkyBlue', 'DimGray',
+            'DodgerBlue', 'FireBrick', 'ForestGreen', 'Fuchsia', 'Gold'];
     }
 
     createLayout() {
