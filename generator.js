@@ -1,18 +1,23 @@
 class generator {
-    get size() {
-        return 38;
+    constructor(s, w, h, max, min) {
+        this.size = s;
+        this.width = w;
+        this.height = h;
+
+        this.max = max;
+        this.min = min;
     }
 
     get distance() {
-        return 15;
+        return Math.floor(this.size / 2);
     }
 
     get columns() {
-        return 10;
+        return Math.ceil(this.width / (this.size + this.distance));
     }
 
     get rows() {
-        return 6;
+        return Math.ceil(this.height / (this.size + this.distance));
     }
 
     get types() {
@@ -27,9 +32,9 @@ class generator {
         let results = [];
         for (let i = 0; i < this.rows; i++) {
             let ti = Math.floor((Math.random() * this.types.length));
+            let c = this.colors[Math.floor((Math.random() * this.colors.length))];
 
-            for (let j = 0; j <= Math.floor((Math.random() * this.columns)); j++) {
-                let c = this.colors[Math.floor((Math.random() * this.colors.length))];
+            for (let j = 0; j < Math.floor(Math.random() * (this.max - this.min + 1)) + this.min; j++) {
                 let b = (this.size + this.distance) * 2;
                 let x = j * b;
                 let y = i * b;
