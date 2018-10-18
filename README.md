@@ -4,4 +4,4 @@
 rumbus parallelogram trapezoid
 hexagon star
 oval heart
-banan chicken svg different
+chicken svg different

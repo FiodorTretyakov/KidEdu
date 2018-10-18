@@ -21,7 +21,7 @@ class generator {
     }
 
     get types() {
-        return ['circle', 'square', 'triangle', 'pentagon'];
+        return ['circle', 'square', 'triangle', 'pentagon', 'banana'];
     }
 
     get colors() {
@@ -73,6 +73,10 @@ class generator {
                         e = new polygon(c, [
                             new point(x + this.size / 2, y + this.size * 2), new point(x + this.size * 3 / 2, y + this.size * 2), new point(x + this.size * 2, y + this.size),
                             new point(x + this.size, y), new point(x, y + this.size)]);
+                        break;
+                    }
+                    case 4: {
+                        e = new image(this.types[ti], this.size, x, y);
                         break;
                     }
                 }
