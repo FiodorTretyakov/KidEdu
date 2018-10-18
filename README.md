@@ -1,9 +1,7 @@
 # kidedu
 //TODO: pattern generator
-//TODO all colours: non dark blue non black
+//TODO all colours
 rumbus parallelogram trapezoid
 hexagon star
 oval heart
 banan chicken svg different
-bright colors
-fix issue - start from top left

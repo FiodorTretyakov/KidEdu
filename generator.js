@@ -48,30 +48,27 @@ class generator {
                 let e;
                 switch (ti) {
                     case 0: {
-                        e = new circle(c, x, y, this.size);
+                        e = new circle(c, x + this.size, y + this.size, this.size);
                         break;
                     }
                     case 1: {
                         e = new rectangle(c,
-                            x - this.size,
-                            y - this.size,
+                            x,
+                            y,
                             this.size * 2);
                         break;
                     }
                     case 2: {
                         e = new polygon(c, [
-                            new point(x - this.size, y + this.size),
-                            new point(x, y - this.size),
-                            new point(x + this.size, y + this.size)]);
+                            new point(x, y + this.size * 2),
+                            new point(x + this.size, y),
+                            new point(x + this.size * 2, y + this.size * 2)]);
                         break;
                     }
                     case 3: {
                         e = new polygon(c, [
-                            new point(x - this.size / 2, y + this.size),
-                            new point(x + this.size / 2, y + this.size),
-                            new point(x + this.size, y),
-                            new point(x, y - this.size),
-                            new point(x - this.size, y)]);
+                            new point(x + this.size / 2, y + this.size * 2), new point(x + this.size * 3 / 2, y + this.size * 2), new point(x + this.size * 2, y + this.size),
+                            new point(x + this.size, y), new point(x, y + this.size)]);
                         break;
                     }
                 }
