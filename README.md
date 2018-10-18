@@ -6,3 +6,4 @@ hexagon star
 oval heart
 banan chicken svg different
 bright colors
+fix issue - start from top left
