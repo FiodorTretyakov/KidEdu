@@ -45,6 +45,10 @@ class generator {
                 let x = j * b;
                 let y = i * b;
 
+                if (x + this.size * 2 > this.width || y + this.size * 2 > this.height) {
+                    break;
+                }
+
                 let e;
                 switch (ti) {
                     case 0: {
