@@ -25,12 +25,11 @@ class generator {
     }
 
     get colors() {
-        return ['AntiqueWhite', 'Aqua', 'Aquamarine', 'Black', 'Blue',
-            'BlueViolet', 'Brown', 'BurlyWood', 'CadetBlue', 'Chartreuse',
+        return ['AntiqueWhite', 'Aqua', 'Aquamarine', 'Blue', 'Brown', 'BurlyWood', 'CadetBlue', 'Chartreuse',
             'Chocolate', 'Coral', 'CornflowerBlue', 'Crimson', 'Cyan',
-            'DarkBlue', 'DarkCyan', 'DarkGoldenRod', 'DarkGray', 'DarkGreen',
+            'DarkCyan', 'DarkGoldenRod', 'DarkGray', 'DarkGreen',
             'DarkKhaki', 'DarkMagenta', 'DarkOliveGreen', 'DarkOrange', 'DarkOrchid',
-            'DarkRed', 'DarkSalmon', 'DarkSeaGreen', 'DarkSlateBlue', 'DarkSlateGray',
+            'DarkRed', 'DarkSalmon', 'DarkSeaGreen', 'DarkSlateGray',
             'DarkTurquoise', 'DarkViolet', 'DeepPink', 'DeepSkyBlue', 'DimGray',
             'DodgerBlue', 'FireBrick', 'ForestGreen', 'Fuchsia', 'Gold'];
     }
@@ -53,7 +52,7 @@ class generator {
                         break;
                     }
                     case 1: {
-                        e = new square(c,
+                        e = new rectangle(c,
                             x - this.size,
                             y - this.size,
                             this.size * 2);

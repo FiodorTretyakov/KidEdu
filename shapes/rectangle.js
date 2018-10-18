@@ -1,4 +1,4 @@
-class square extends shape {
+class rectangle extends shape {
     constructor(c, x, y, r) {
         super('rect', c);
         this.e.setAttributeNS(null, 'width', r);
