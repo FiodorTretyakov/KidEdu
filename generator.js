@@ -25,7 +25,7 @@ class generator {
     }
 
     get colors() {
-        return ['AntiqueWhite', 'Aqua', 'Aquamarine', 'Blue', 'Brown', 'BurlyWood', 'CadetBlue', 'Chartreuse',
+        return ['Aqua', 'Aquamarine', 'Blue', 'Brown', 'BurlyWood', 'CadetBlue', 'Chartreuse',
             'Chocolate', 'Coral', 'CornflowerBlue', 'Crimson', 'Cyan',
             'DarkCyan', 'DarkGoldenRod', 'DarkGray', 'DarkGreen',
             'DarkKhaki', 'DarkMagenta', 'DarkOliveGreen', 'DarkOrange', 'DarkOrchid',
