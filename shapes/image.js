@@ -4,7 +4,7 @@ class image extends shape {
 
         const size = s * 2;
 
-        this.e.setAttribute('xlink:href', 'images/' + t + '.svg');
+        this.e.setAttributeNS('http://www.w3.org/1999/xlink', 'href', 'images\\' + t + '.svg');
         this.e.setAttribute('width', size);
         this.e.setAttribute('height', size);
         this.e.setAttribute('x', x);
