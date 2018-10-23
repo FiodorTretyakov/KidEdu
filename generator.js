@@ -21,7 +21,7 @@ class generator {
     }
 
     get types() {
-        return ['circle', 'square', 'triangle', 'pentagon', 'banana'];
+        return ['circle', 'square', 'triangle', 'pentagon', 'banana', 'panda', 'squirrel'];
     }
 
     get colors() {
@@ -75,10 +75,10 @@ class generator {
                             new point(x + this.size, y), new point(x, y + this.size)]);
                         break;
                     }
-                    case 4: {
-                        e = new image(this.types[ti], this.size, x, y);
-                        break;
-                    }
+                }
+
+                if (ti >= 4) {
+                    e = new image(this.types[ti], this.size, x, y);
                 }
 
                 results.push(e.element);
