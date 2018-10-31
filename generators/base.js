@@ -37,6 +37,10 @@ class base {
             'DodgerBlue', 'FireBrick', 'ForestGreen', 'Fuchsia', 'Gold'];
     }
 
+    get toFill() {
+        return true;
+    }
+
     createLayout() {
         let results = [];
         for (let i = 0; i < this.rows; i++) {
@@ -55,25 +59,25 @@ class base {
                 let e;
                 switch (ti) {
                     case 0: {
-                        e = new circle(c, x + this.size, y + this.size, this.size);
+                        e = new circle(c, this.toFill, x + this.size, y + this.size, this.size);
                         break;
                     }
                     case 1: {
-                        e = new rectangle(c,
+                        e = new rectangle(c, this.toFill,
                             x,
                             y,
                             this.size * 2);
                         break;
                     }
                     case 2: {
-                        e = new polygon(c, [
+                        e = new polygon(c, this.toFill, [
                             new point(x, y + this.size * 2),
                             new point(x + this.size, y),
                             new point(x + this.size * 2, y + this.size * 2)]);
                         break;
                     }
                     case 3: {
-                        e = new polygon(c, [
+                        e = new polygon(c, this.toFill, [
                             new point(x + this.size / 2, y + this.size * 2), new point(x + this.size * 3 / 2, y + this.size * 2), new point(x + this.size * 2, y + this.size),
                             new point(x + this.size, y), new point(x, y + this.size)]);
                         break;
