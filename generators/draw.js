@@ -1,0 +1,2 @@
+class draw extends base {
+}
