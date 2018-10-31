@@ -1,8 +1,10 @@
 class circle extends shape {
     constructor(c, x, y, r) {
-        super('circle', c);
-        this.e.setAttribute('r', r);
-        this.e.setAttribute('cx', x);
-        this.e.setAttribute('cy', y);
+        let e = super('circle', c);
+        e.setAttribute('r', r);
+        e.setAttribute('cx', x);
+        e.setAttribute('cy', y);
+
+        return e;
     }
 }

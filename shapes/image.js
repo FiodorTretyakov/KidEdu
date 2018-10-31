@@ -1,13 +1,15 @@
 class image extends shape {
     constructor(t, s, x, y) {
-        super('image');
+        let e = super('image');
 
         const size = s * 2;
 
-        this.e.setAttributeNS('http://www.w3.org/1999/xlink', 'href', 'images\\' + t + '.svg');
-        this.e.setAttribute('width', size);
-        this.e.setAttribute('height', size);
-        this.e.setAttribute('x', x);
-        this.e.setAttribute('y', y);
+        e.setAttributeNS('http://www.w3.org/1999/xlink', 'href', 'images\\' + t + '.svg');
+        e.setAttribute('width', size);
+        e.setAttribute('height', size);
+        e.setAttribute('x', x);
+        e.setAttribute('y', y);
+
+        return e;
     }
 }

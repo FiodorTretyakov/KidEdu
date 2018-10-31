@@ -84,7 +84,7 @@ class base {
                     e = new image(this.types[ti], this.size, x, y);
                 }
 
-                results.push(e.element);
+                results.push(e);
             }
         }
 
