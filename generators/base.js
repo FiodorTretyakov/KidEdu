@@ -1,8 +1,8 @@
 class base {
-    constructor(s, w, h) {
+    constructor(s) {
         this.size = s;
-        this.width = w;
-        this.height = h;
+        this.width = 2000;
+        this.height = 1071;
 
         this.types = this.figures;
     }

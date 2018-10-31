@@ -1,6 +1,6 @@
 class count extends base {
-    constructor(s, w, h, max, min) {
-        super(s, w, h);
+    constructor(s, max, min) {
+        super(s);
         this.max = max;
         this.min = min;
 
