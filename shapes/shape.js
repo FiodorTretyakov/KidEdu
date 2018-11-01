@@ -1,5 +1,5 @@
 class shape {
-    constructor(t, c, tf) {
+    constructor(t, c, tf, is) {
         let e = document.createElementNS('http://www.w3.org/2000/svg', t);
 
         if (c) {
@@ -9,7 +9,10 @@ class shape {
                 e.setAttribute('fill', 'transparent');
                 e.setAttribute('stroke', c);
                 e.setAttribute('stroke-width', 5);
-                e.setAttribute('stroke-dasharray', 15);
+
+                if (!is) {
+                    e.setAttribute('stroke-dasharray', 15);
+                }
             }
         }
 

@@ -20,11 +20,11 @@ class base {
     }
 
     get figures() {
-        return ['circle', 'square', 'triangle', 'pentagon'];
+        return ['circle', 'square', 'triangle', 'pentagon', 'line'];
     }
 
     get images() {
-        return ['banana', 'panda', 'squirrel'];
+        return ['banana', 'panda', 'squirrel', 'penguin', 'apple'];
     }
 
     get colors() {
@@ -63,17 +63,11 @@ class base {
                         break;
                     }
                     case 1: {
-                        e = new rectangle(c, this.toFill,
-                            x,
-                            y,
-                            this.size * 2);
+                        e = new rectangle(c, this.toFill, x, y, this.size * 2);
                         break;
                     }
                     case 2: {
-                        e = new polygon(c, this.toFill, [
-                            new point(x, y + this.size * 2),
-                            new point(x + this.size, y),
-                            new point(x + this.size * 2, y + this.size * 2)]);
+                        e = new polygon(c, this.toFill, [new point(x, y + this.size * 2), new point(x + this.size, y), new point(x + this.size * 2, y + this.size * 2)]);
                         break;
                     }
                     case 3: {
@@ -82,9 +76,13 @@ class base {
                             new point(x + this.size, y), new point(x, y + this.size)]);
                         break;
                     }
+                    case 4: {
+                        e = new line(c, this.toFill, x + this.size, y, x + this.size, y + this.size * 2);
+                        break;
+                    }
                 }
 
-                if (ti >= 4) {
+                if (ti >= this.figures.length) {
                     e = new image(this.types[ti], this.size, x, y);
                 }
 
