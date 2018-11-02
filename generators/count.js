@@ -3,8 +3,6 @@ class count extends base {
         super(s);
         this.max = max;
         this.min = min;
-
-        this.types = this.types.concat(this.images);
     }
 
     get limit() {

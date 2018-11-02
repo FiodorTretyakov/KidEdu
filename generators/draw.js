@@ -1,4 +1,10 @@
 class draw extends base {
+    constructor(s) {
+        super(s);
+
+        this.types = this.figures;
+    }
+
     get limit() {
         return this.columns;
     }

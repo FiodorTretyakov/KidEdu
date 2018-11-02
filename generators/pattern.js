@@ -1,0 +1,3 @@
+class pattern extends base {
+    
+}

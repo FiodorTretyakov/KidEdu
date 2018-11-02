@@ -1,10 +1,8 @@
 class base {
     constructor(s) {
         this.size = s;
-        this.width = 2000;
-        this.height = 1071;
 
-        this.types = this.figures;
+        this.types = this.figures.concat(this.images)
     }
 
     get distance() {
