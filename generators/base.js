@@ -41,54 +41,75 @@ class base {
     }
 
     createLayout() {
-        let results = [];
+        let r = [];
         for (let i = 0; i < this.rows; i++) {
-            let ti = Math.floor((Math.random() * this.types.length));
-            let c = this.colors[Math.floor((Math.random() * this.colors.length))];
+            let ti = Math.floor(Math.random() * this.types.length);
+            let c = this.colors[this.getColorIndexNonUniq()];
 
             for (let j = 0; j < this.limit; j++) {
-                let b = (this.size + this.distance) * 2;
-                let x = j * b;
-                let y = i * b;
+                let e = this.getCell(ti, c, i, j);
 
-                if (x + this.size * 2 > this.width || y + this.size * 2 > this.height) {
-                    break;
+                if (e) {
+                    r.push(e);
                 }
-
-                let e;
-                switch (ti) {
-                    case 0: {
-                        e = new circle(c, this.toFill, x + this.size, y + this.size, this.size);
-                        break;
-                    }
-                    case 1: {
-                        e = new rectangle(c, this.toFill, x, y, this.size * 2);
-                        break;
-                    }
-                    case 2: {
-                        e = new polygon(c, this.toFill, [new point(x, y + this.size * 2), new point(x + this.size, y), new point(x + this.size * 2, y + this.size * 2)]);
-                        break;
-                    }
-                    case 3: {
-                        e = new polygon(c, this.toFill, [
-                            new point(x + this.size / 2, y + this.size * 2), new point(x + this.size * 3 / 2, y + this.size * 2), new point(x + this.size * 2, y + this.size),
-                            new point(x + this.size, y), new point(x, y + this.size)]);
-                        break;
-                    }
-                    case 4: {
-                        e = new line(c, this.toFill, x + this.size, y, x + this.size, y + this.size * 2);
-                        break;
-                    }
-                }
-
-                if (ti >= this.figures.length) {
-                    e = new image(this.types[ti], this.size, x, y);
-                }
-
-                results.push(e);
             }
         }
 
-        return results;
+        return r;
+    }
+
+    getColorIndex(cs) {
+        let c;
+        do {
+            c = this.getColorIndexNonUniq();
+        } while (cs.indexOf(c) !== -1)
+
+        return c;
+    }
+
+    getColorIndexNonUniq() {
+        return Math.floor((Math.random() * this.colors.length));
+    }
+
+    getCell(ti, c, i, j) {
+        let b = (this.size + this.distance) * 2;
+        let x = j * b;
+        let y = i * b;
+
+        if (x + this.size * 2 > this.width || y + this.size * 2 > this.height) {
+             return;
+        }
+
+        let e;
+        switch (ti) {
+            case 0: {
+                e = new circle(c, this.toFill, x + this.size, y + this.size, this.size);
+                break;
+            }
+            case 1: {
+                e = new rectangle(c, this.toFill, x, y, this.size * 2);
+                break;
+            }
+            case 2: {
+                e = new polygon(c, this.toFill, [new point(x, y + this.size * 2), new point(x + this.size, y), new point(x + this.size * 2, y + this.size * 2)]);
+                break;
+            }
+            case 3: {
+                e = new polygon(c, this.toFill, [
+                    new point(x + this.size / 2, y + this.size * 2), new point(x + this.size * 3 / 2, y + this.size * 2), new point(x + this.size * 2, y + this.size),
+                    new point(x + this.size, y), new point(x, y + this.size)]);
+                break;
+            }
+            case 4: {
+                e = new line(c, this.toFill, x + this.size, y, x + this.size, y + this.size * 2);
+                break;
+            }
+        }
+
+        if (ti >= this.figures.length) {
+            e = new image(this.types[ti], this.size, x, y);
+        }
+
+        return e;
     }
 }
