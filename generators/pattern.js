@@ -4,27 +4,28 @@ class pattern extends count {
     }
 
     get patterns() {
-        return ['1-to-1 color']; //, '1-to-1 shape'
+        return ['1-to-1 color', '1-to-1 shape'];
     }
     
     createLayout() {
         let r = [];
         for (let i = 0; i < this.rows; i++) {
-            let p = Math.floor(Math.random() * this.patterns.length);
+            let p = this.getEntityIndex(this.patterns);
 
-            let cs = [];
+            let cs = [this.getEntityIndex(this.colors)];
             let ss = [];
             switch (p) {
                 case 0: {
-                    let c = this.getColorIndexNonUniq();
-                    cs.push(c);
-                    cs.push(this.getColorIndex(cs));
+                    cs.push(this.getEntityIndexUniq(this.colors, cs));
 
                     this.types = this.figures;
-                    ss.push(Math.floor((Math.random() * this.types.length))); 
+                    ss.push(this.getEntityIndex(this.types)); 
                     break;
                 }
                 case 1: {
+                    this.types = this.allTypes;
+                    ss.push(this.getEntityIndex(this.types));
+                    ss.push(this.getEntityIndexUniq(this.types, ss));  
                     break;
                 }
             }

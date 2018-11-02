@@ -2,7 +2,11 @@ class base {
     constructor(s) {
         this.size = s;
 
-        this.types = this.figures.concat(this.images)
+        this.types = this.allTypes;
+    }
+
+    get allTypes() {
+        return this.figures.concat(this.images);
     }
 
     get distance() {
@@ -43,8 +47,8 @@ class base {
     createLayout() {
         let r = [];
         for (let i = 0; i < this.rows; i++) {
-            let ti = Math.floor(Math.random() * this.types.length);
-            let c = this.colors[this.getColorIndexNonUniq()];
+            let ti = this.getEntityIndex(this.types);
+            let c = this.colors[this.getEntityIndex(this.colors)];
 
             for (let j = 0; j < this.limit; j++) {
                 let e = this.getCell(ti, c, i, j);
@@ -58,17 +62,17 @@ class base {
         return r;
     }
 
-    getColorIndex(cs) {
+    getEntityIndexUniq(a, cs) {
         let c;
         do {
-            c = this.getColorIndexNonUniq();
+            c = this.getEntityIndex(a);
         } while (cs.indexOf(c) !== -1)
 
         return c;
     }
 
-    getColorIndexNonUniq() {
-        return Math.floor((Math.random() * this.colors.length));
+    getEntityIndex(a) {
+        return Math.floor((Math.random() * a.length));
     }
 
     getCell(ti, c, i, j) {
