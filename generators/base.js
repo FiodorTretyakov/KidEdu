@@ -37,7 +37,7 @@ class base {
             'LightPink', 'LightSalmon', 'LightSeaGreen', 'LightSkyBlue', 'LightSteelBlue', 'Lime', 'LimeGreen', 'Magenta', 'MediumAquaMarine',
             'MediumOrchid', 'MediumPurple', 'MediumSeaGreen', 'MediumSpringGreen', 'MediumTurquoise', 'MediumVioletRed', 'OliveDrab', 'Orange',
             'OrangeRed', 'Orchid', 'PaleVioletRed', 'Peru', 'Red', 'RosyBrown', 'RoyalBlue', 'Salmon', 'SandyBrown', 'SeaGreen', 'SpringGreen', 'Tomato',
-            'Turquoise', 'Violet', 'Yellow', 'YellowGreen'];
+            'Turquoise', 'Violet', 'YellowGreen'];
     }
 
     get toFill() {
