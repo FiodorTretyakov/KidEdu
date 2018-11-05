@@ -1,5 +1,4 @@
 # kidedu
-svg images more
 figures: rumbus parallelogram trapezoid hexagon star oval heart semi circles 
 draw: digits letters
 paterns: 2to1

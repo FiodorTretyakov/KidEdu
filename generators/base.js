@@ -26,7 +26,7 @@ class base {
     }
 
     get images() {
-        return ['banana', 'panda', 'squirrel', 'penguin', 'apple'];
+        return ['banana', 'panda', 'squirrel', 'penguin', 'apple', 'rabbit'];
     }
 
     get colors() {
