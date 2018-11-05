@@ -4,31 +4,32 @@ class pattern extends count {
     }
 
     get patterns() {
-        return ['1-to-1 color', '1-to-1 shape'];
+        return [new kind(1, 0), new kind(2, 0), new kind(1, 1)];
     }
-    
+
     createLayout() {
         let r = [];
         for (let i = 0; i < this.rows; i++) {
-            let p = this.getEntityIndex(this.patterns);
+            let p = this.patterns[this.getEntityIndex(this.patterns)];
 
-            let cs = [this.getEntityIndex(this.colors)];
+            let cs = [];
             let ss = [];
-            switch (p) {
-                case 0: {
-                    cs.push(this.getEntityIndexUniq(this.colors, cs));
 
-                    this.types = this.figures;
-                    ss.push(this.getEntityIndex(this.types)); 
-                    break;
-                }
-                case 1: {
-                    this.types = this.allTypes;
-                    ss.push(this.getEntityIndex(this.types));
-                    ss.push(this.getEntityIndexUniq(this.types, ss));  
-                    break;
-                }
+            let d = {};
+            if (p.type == 0) {
+                d.a = cs;
+                this.types = this.figures;
+                d.b = ss;
+            } else {
+                d.a = ss;
+                this.types = this.allTypes;
+                d.b = cs;
             }
+
+            for (let j = 0; j <= p.number; j++) {
+                d = this.getPattern(j, p.type, d.a, d.b);
+            }
+
 
             for (let j = 0; j < this.limit; j++) {
                 let e = this.getCell(ss[j % ss.length], this.colors[cs[j % cs.length]], i, j);
@@ -40,5 +41,23 @@ class pattern extends count {
         }
 
         return r;
+    }
+
+    getPattern(n, t, a, b) {
+        let aD, bD;
+        if (t == 0) {
+            aD = this.colors;
+            bD = this.types;
+        } else {
+            aD = this.types;
+            bD = this.colors;
+        }
+
+        a.push(this.getEntityIndexUniq(aD, a));
+        if (n == 0) {
+            b.push(this.getEntityIndex(bD));
+        }
+
+        return { a: a, b: b };
     }
 }

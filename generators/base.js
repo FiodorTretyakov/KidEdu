@@ -46,9 +46,19 @@ class base {
 
     createLayout() {
         let r = [];
+        let tis = [];
+        let cs = [];
         for (let i = 0; i < this.rows; i++) {
-            let ti = this.getEntityIndex(this.types);
-            let c = this.colors[this.getEntityIndex(this.colors)];
+            let ti = this.getEntityIndexUniq(this.types, tis);
+            
+            if (tis.length + 1 === this.types.length) {
+                tis = [];
+            } else {
+                tis.push(ti);
+            }
+
+            let c = this.colors[this.getEntityIndexUniq(this.colors, cs)];
+            cs.push(c);
 
             for (let j = 0; j < this.limit; j++) {
                 let e = this.getCell(ti, c, i, j);
