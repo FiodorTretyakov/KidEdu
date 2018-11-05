@@ -22,7 +22,7 @@ class base {
     }
 
     get figures() {
-        return ['circle', 'square', 'triangle', 'pentagon', 'line'];
+        return ['circle', 'square', 'triangle', 'pentagon', 'line', 'diamond'];
     }
 
     get images() {
@@ -106,6 +106,12 @@ class base {
             }
             case 4: {
                 e = new line(c, this.toFill, x + this.size, y, x + this.size, y + this.size * 2);
+                break;
+            }
+            case 5: {
+                e = new polygon(c, this.toFill, [
+                    new point(x, y + this.size), new point(x + this.size, y + this.size * 2), new point(x + this.size * 2, y + this.size),
+                    new point(x + this.size, y)]);
                 break;
             }
         }
