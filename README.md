@@ -5,3 +5,5 @@ more or less
 labirint
 grouping
 sorting
+
+patterns with digits
