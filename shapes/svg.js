@@ -1,9 +1,17 @@
 class svg {
     constructor() {
         let e = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
-        e.setAttribute('width', 2000);
-        e.setAttribute('height', 1071);
+        e.setAttribute('width', svg.width);
+        e.setAttribute('height', svg.height);
 
         return e;
+    }
+
+    static get width() {
+        return 1500;
+    }
+
+    static get height() {
+        return 1071;
     }
 }
