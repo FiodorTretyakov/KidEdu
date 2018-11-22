@@ -3,6 +3,7 @@ class pattern extends count {
         super(s, 8, 5);
 
         this.colors = this.simpleColors;
+        this.types = this.basicFiguresAndImages
     }
 
     createLayout() {
@@ -20,11 +21,11 @@ class pattern extends count {
                 d.b = ss;
             } else {
                 d.a = ss;
-                this.types = this.allTypes;
+                this.types = this.basicFiguresAndImages;
                 d.b = cs;
             }
 
-            for (let j = 0; j <= Math.ceil((Math.random() * this.limit - 2)) + 1; j++) {
+            for (let j = 0; j <= Math.ceil((Math.random() * this.limit - 1)) + 1; j++) {
                 d = this.getPattern(j, t, d.a, d.b);
             }
 
@@ -45,13 +46,15 @@ class pattern extends count {
         let aD, bD;
         if (t == 0) {
             aD = this.colors;
-            bD = this.types;
+            bD = this.types;    
         } else {
             aD = this.types;
             bD = this.colors;
+
+            b.push(this.getEntityIndex(bD));
         }
 
-        a.push(this.getEntityIndexUniq(aD, a));
+        a.push(this.getEntityIndex(aD, a));
         if (n == 0) {
             b.push(this.getEntityIndex(bD));
         }

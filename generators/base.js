@@ -35,6 +35,10 @@ class base {
         return ['line'];
     }
 
+    get basicFiguresAndImages() {
+        return this.figures.concat(this.images);
+    }
+
     get images() {
         return ['banana', 'panda', 'squirrel', 'penguin', 'apple', 'rabbit'];
     }
@@ -63,7 +67,7 @@ class base {
         let tis = [];
         let cs = [];
         for (let i = 0; i < this.rows; i++) {
-            let ti = this.getEntityIndexUniq(this.types, tis);
+            let ti = this.getEntityIndex(this.types, tis);
             
             if (tis.length + 1 === this.types.length) {
                 tis = [];
@@ -71,7 +75,7 @@ class base {
                 tis.push(ti);
             }
 
-            let c = this.colors[this.getEntityIndexUniq(this.colors, cs)];
+            let c = this.colors[this.getEntityIndex(this.colors, cs)];
             cs.push(c);
 
             for (let j = 0; j < this.limit; j++) {
@@ -86,16 +90,16 @@ class base {
         return r;
     }
 
-    getEntityIndexUniq(a, cs) {
+    getEntityIndex(a, cs) {
         let c;
         do {
-            c = this.getEntityIndex(a);
-        } while (cs.indexOf(c) !== -1)
+            c = this.getEntityIndexNonUniq(a);
+        } while (cs && cs.indexOf(c) !== -1)
 
         return c;
     }
 
-    getEntityIndex(a) {
+    getEntityIndexNonUniq(a) {
         return Math.floor((Math.random() * a.length));
     }
 
