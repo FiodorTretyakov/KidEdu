@@ -3,20 +3,16 @@ class pattern extends count {
         super(s, 8, 5);
     }
 
-    get patterns() {
-        return [new kind(1, 0), new kind(2, 0), new kind(1, 1), new kind(2, 1)];
-    }
-
     createLayout() {
         let r = [];
         for (let i = 0; i < this.rows; i++) {
-            let p = this.patterns[this.getEntityIndex(this.patterns)];
+            let t =  Math.floor((Math.random() * 2));
 
             let cs = [];
             let ss = [];
 
             let d = {};
-            if (p.type == 0) {
+            if (t == 0) {
                 d.a = cs;
                 this.types = this.figures;
                 d.b = ss;
@@ -26,8 +22,8 @@ class pattern extends count {
                 d.b = cs;
             }
 
-            for (let j = 0; j <= p.number; j++) {
-                d = this.getPattern(j, p.type, d.a, d.b);
+            for (let j = 0; j <= Math.ceil((Math.random() * this.limit - 2)) + 1; j++) {
+                d = this.getPattern(j, t, d.a, d.b);
             }
 
 
