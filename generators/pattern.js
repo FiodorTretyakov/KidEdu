@@ -3,7 +3,7 @@ class pattern extends count {
         super(s, 8, 5);
 
         this.colors = this.simpleColors;
-        this.types = this.basicFiguresAndImages
+        this.types = this.basicFiguresAndImages;
     }
 
     createLayout() {
@@ -31,7 +31,7 @@ class pattern extends count {
 
 
             for (let j = 0; j < this.limit; j++) {
-                let e = this.getCell(ss[j % ss.length], this.colors[cs[j % cs.length]], i, j);
+                let e = this.getCell(ss[j % ss.length], this.colors[cs[j % cs.length]], i, j, this.figures);
 
                 if (e) {
                     r.push(e);
