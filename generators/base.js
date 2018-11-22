@@ -3,6 +3,7 @@ class base {
         this.size = s;
 
         this.types = this.allTypes;
+        this.colors = this.simpleColors.concat(this.nextColors);
     }
 
     get allTypes() {
@@ -38,15 +39,19 @@ class base {
         return ['banana', 'panda', 'squirrel', 'penguin', 'apple', 'rabbit'];
     }
 
-    get colors() {
-        return ['Aqua', 'Aquamarine', 'Blue', 'Brown', 'CadetBlue', 'Chartreuse', 'Chocolate', 'Coral', 'CornflowerBlue', 'Crimson', 'Cyan',
-            'DarkCyan', 'DarkGoldenRod', 'DarkGray', 'DarkGreen', 'DarkKhaki', 'DarkMagenta', 'DarkOliveGreen', 'DarkOrange', 'DarkOrchid', 'DarkRed',
+    get simpleColors() {
+        return ['Blue', 'Brown', 'Cyan', 'Green', 'Orange', 'Red', 'DarkGray', 'Violet']
+    }
+
+    get nextColors() {
+        return ['Aqua', 'Gold', 'Aquamarine', , 'CadetBlue', 'Chartreuse', 'Chocolate', 'Coral', 'CornflowerBlue', 'Crimson',
+            'DarkCyan', 'DarkGoldenRod', 'DarkGreen', 'DarkKhaki', 'DarkMagenta', 'DarkOliveGreen', 'DarkOrange', 'DarkOrchid', 'DarkRed',
             'DarkSalmon', 'DarkSeaGreen', 'DarkSlateGray', 'DarkTurquoise', 'DarkViolet', 'DeepPink', 'DeepSkyBlue', 'DimGray', 'DodgerBlue', 'FireBrick',
-            'ForestGreen', 'Fuchsia', 'Gold', 'GoldenRod', 'Green', 'GreenYellow', 'HotPink', 'IndianRed', 'LawnGreen', 'LightCoral', 'LightGray',
+            'ForestGreen', 'Fuchsia', 'GoldenRod', 'GreenYellow', 'HotPink', 'IndianRed', 'LawnGreen', 'LightCoral', 'LightGray',
             'LightPink', 'LightSalmon', 'LightSeaGreen', 'LightSkyBlue', 'LightSteelBlue', 'Lime', 'LimeGreen', 'Magenta', 'MediumAquaMarine',
-            'MediumOrchid', 'MediumPurple', 'MediumSeaGreen', 'MediumSpringGreen', 'MediumTurquoise', 'MediumVioletRed', 'OliveDrab', 'Orange',
-            'OrangeRed', 'Orchid', 'PaleVioletRed', 'Peru', 'Red', 'RosyBrown', 'RoyalBlue', 'Salmon', 'SandyBrown', 'SeaGreen', 'SpringGreen', 'Tomato',
-            'Turquoise', 'Violet', 'YellowGreen'];
+            'MediumOrchid', 'MediumPurple', 'MediumSeaGreen', 'MediumSpringGreen', 'MediumTurquoise', 'MediumVioletRed', 'OliveDrab',
+            'OrangeRed', 'Orchid', 'PaleVioletRed', 'Peru', 'RosyBrown', 'RoyalBlue', 'Salmon', 'SandyBrown', 'SeaGreen', 'SpringGreen', 'Tomato',
+            'Turquoise', , 'YellowGreen']
     }
 
     get toFill() {

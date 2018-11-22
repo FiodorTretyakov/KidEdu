@@ -1,6 +1,8 @@
 class pattern extends count {
     constructor(s) {
         super(s, 8, 5);
+
+        this.colors = this.simpleColors;
     }
 
     createLayout() {
