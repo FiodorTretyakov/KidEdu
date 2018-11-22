@@ -25,12 +25,12 @@ class pattern extends count {
                 d.b = cs;
             }
 
-            for (let j = 0; j <= Math.ceil((Math.random() * this.limit - 2)) + 2; j++) {
+            for (let j = 0; j <= Math.ceil(Math.random() * this.limit) + 1; j++) {
                 d = this.getPattern(j, t, d.a, d.b);
             }
 
 
-            for (let j = 0; j < this.limit; j++) {
+            for (let j = 0; j < this.limit - 1; j++) {
                 let e = this.getCell(ss[j % ss.length], this.colors[cs[j % cs.length]], i, j, this.figures);
 
                 if (e) {
