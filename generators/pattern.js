@@ -1,6 +1,6 @@
 class pattern extends count {
-    constructor(s) {
-        super(s, 8, 5);
+    constructor() {
+        super(8, 5);
 
         this.colors = this.simpleColors;
         this.types = this.basicFiguresAndImages;
