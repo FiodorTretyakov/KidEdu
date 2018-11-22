@@ -8,7 +8,7 @@ class svg {
     }
 
     static get width() {
-        return 1500;
+        return 1619;
     }
 
     static get height() {
