@@ -4,7 +4,7 @@ class pattern extends count {
     }
 
     get patterns() {
-        return [new kind(1, 0), new kind(2, 0), new kind(1, 1)];
+        return [new kind(1, 0), new kind(2, 0), new kind(1, 1), new kind(2, 1)];
     }
 
     createLayout() {
