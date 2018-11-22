@@ -1,6 +1,6 @@
 class count extends base {
     constructor(max, min) {
-        super(Math.floor(svg.width / max / 3));
+        super(max);
         this.max = max;
         this.min = min;
     }

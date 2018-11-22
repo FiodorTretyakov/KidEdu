@@ -1,6 +1,6 @@
 class base {
-    constructor(s) {
-        this.size = s;
+    constructor(max) {
+        this.size = Math.floor(svg.width / max / 3);
 
         this.types = this.allTypes;
         this.colors = this.simpleColors.concat(this.nextColors);
