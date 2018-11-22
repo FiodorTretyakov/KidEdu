@@ -6,7 +6,7 @@ class base {
     }
 
     get allTypes() {
-        return this.figures.concat(this.images);
+        return this.allFigures.concat(this.images);
     }
 
     get distance() {
@@ -21,8 +21,17 @@ class base {
         return Math.ceil(this.height / (this.size + this.distance));
     }
 
+    get allFigures() {
+        return this.figures.concat(this.addFigures);
+    }
+
+
     get figures() {
-        return ['circle', 'square', 'triangle', 'pentagon', 'line', 'diamond'];
+        return ['circle', 'square', 'triangle', 'pentagon', 'diamond'];
+    }
+
+    get addFigures() {
+        return ['line'];
     }
 
     get images() {
@@ -115,18 +124,18 @@ class base {
                 break;
             }
             case 4: {
-                e = new line(c, this.toFill, x + this.size, y, x + this.size, y + this.size * 2);
-                break;
-            }
-            case 5: {
                 e = new polygon(c, this.toFill, [
                     new point(x, y + this.size), new point(x + this.size, y + this.size * 2), new point(x + this.size * 2, y + this.size),
                     new point(x + this.size, y)]);
                 break;
             }
+            case 5: {
+                e = new line(c, this.toFill, x + this.size, y, x + this.size, y + this.size * 2);
+                break;
+            }
         }
 
-        if (ti >= this.figures.length) {
+        if (ti >= this.allFigures.length) {
             e = new image(this.types[ti], this.size, x, y);
         }
 

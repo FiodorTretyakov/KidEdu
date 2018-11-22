@@ -2,7 +2,7 @@ class draw extends base {
     constructor(s) {
         super(s);
 
-        this.types = this.figures;
+        this.types = this.allFigures;
     }
 
     get limit() {
