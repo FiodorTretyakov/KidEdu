@@ -1,11 +1,16 @@
 class count extends base {
-    constructor(max, min) {
+    constructor(min, max) {
         super(max);
+
         this.max = max;
         this.min = min;
     }
 
     get limit() {
-        return Math.floor(Math.random() * (this.max - this.min + 1)) + this.min;
+        return this.getRandomRange(this.min, this.max);
+    }
+
+    getRandomRange(min, max) {
+        return Math.floor(Math.random() * (max - min + 1)) + min;
     }
 }

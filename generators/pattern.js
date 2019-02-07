@@ -1,9 +1,18 @@
 class pattern extends count {
     constructor() {
-        super(8, 5);
+        const s = 8;
+
+        super(s, s);
+
+        this.minPatterns = 2;
+        this.maxPatterns = 4;
 
         this.colors = this.simpleColors;
         this.types = this.basicFiguresAndImages;
+    }
+
+    get limit() {
+        return this.getRandomRange(this.minPatterns, this.maxPatterns);
     }
 
     createLayout() {
@@ -25,13 +34,12 @@ class pattern extends count {
                 d.b = cs;
             }
 
-            let lim = this.limit;
-            for (let j = 0; j <= Math.ceil(Math.random() * this.limit) + 1; j++) {
+            for (let j = 0; j < this.limit; j++) {
                 d = this.getPattern(j, t, d.a, d.b);
             }
 
 
-            for (let j = 0; j < lim - 1; j++) {
+            for (let j = 0; j < this.max - 1; j++) {
                 let e = this.getCell(ss[j % ss.length], this.colors[cs[j % cs.length]], i, j, this.figures);
 
                 if (e) {
@@ -56,7 +64,7 @@ class pattern extends count {
         }
 
         a.push(this.getEntityIndex(aD, a));
-        if (n == 0) {
+        if (n == 0 && t == 0) {
             b.push(this.getEntityIndex(bD));
         }
 
