@@ -6,10 +6,6 @@ class base {
         this.colors = this.simpleColors.concat(this.nextColors);
     }
 
-    get allTypes() {
-        return this.allFigures.concat(this.images);
-    }
-
     get distance() {
         return Math.floor(this.size / 2);
     }
@@ -22,13 +18,16 @@ class base {
         return Math.ceil(this.height / (this.size + this.distance));
     }
 
+    get allTypes() {
+        return this.allFigures.concat(this.images);
+    }
+
     get allFigures() {
         return this.figures.concat(this.addFigures);
     }
 
-
     get figures() {
-        return ['circle', 'square', 'triangle', 'pentagon', 'diamond'];
+        return ['circle', 'square', 'triangle', 'pentagon', 'diamond', 'rectangle'];
     }
 
     get addFigures() {
@@ -40,7 +39,11 @@ class base {
     }
 
     get images() {
-        return ['banana', 'panda', 'squirrel', 'penguin', 'apple', 'rabbit'];
+        return ['banana', 'apple'].concat(this.liveImages);
+    }
+
+    get liveImages() {
+        return ['panda', 'squirrel', 'penguin', 'rabbit', 'boy', 'girl'];
     }
 
     get simpleColors() {
@@ -79,7 +82,7 @@ class base {
             cs.push(c);
 
             for (let j = 0; j < this.limit; j++) {
-                let e = this.getCell(ti, c, i, j, this.allFigures);
+                let e = this.getCell(ti, c, i, j);
 
                 if (e) {
                     r.push(e);
@@ -103,7 +106,7 @@ class base {
         return Math.floor((Math.random() * a.length));
     }
 
-    getCell(ti, c, i, j, at) {
+    getCell(ti, c, i, j) {
         let b = (this.size + this.distance) * 2;
         let x = j * b;
         let y = i * b;
@@ -114,38 +117,43 @@ class base {
 
         let e;
 
-        if (ti >= at.length) {
-            e = new image(this.types[ti], this.size, x, y);
-        } else {
-            switch (ti) {
-                case 0: {
-                    e = new circle(c, this.toFill, x + this.size, y + this.size, this.size);
-                    break;
-                }
-                case 1: {
-                    e = new rectangle(c, this.toFill, x, y, this.size * 2);
-                    break;
-                }
-                case 2: {
-                    e = new polygon(c, this.toFill, [new point(x, y + this.size * 2), new point(x + this.size, y), new point(x + this.size * 2, y + this.size * 2)]);
-                    break;
-                }
-                case 3: {
-                    e = new polygon(c, this.toFill, [
-                        new point(x + this.size / 2, y + this.size * 2), new point(x + this.size * 3 / 2, y + this.size * 2), new point(x + this.size * 2, y + this.size),
-                        new point(x + this.size, y), new point(x, y + this.size)]);
-                    break;
-                }
-                case 4: {
-                    e = new polygon(c, this.toFill, [
-                        new point(x, y + this.size), new point(x + this.size, y + this.size * 2), new point(x + this.size * 2, y + this.size),
-                        new point(x + this.size, y)]);
-                    break;
-                }
-                case 5: {
-                    e = new line(c, this.toFill, x + this.size, y, x + this.size, y + this.size * 2);
-                    break;
-                }
+        let ind = this.types[ti];
+        switch (ind) {
+            case 'circle': {
+                e = new circle(c, this.toFill, x + this.size, y + this.size, this.size);
+                break;
+            }
+            case 'square': {
+                e = new rectangle(c, this.toFill, x, y, this.size * 2, this.size * 2);
+                break;
+            }
+            case 'triangle': {
+                e = new polygon(c, this.toFill, [new point(x, y + this.size * 2), new point(x + this.size, y), new point(x + this.size * 2, y + this.size * 2)]);
+                break;
+            }
+            case 'pentagon': {
+                e = new polygon(c, this.toFill, [
+                    new point(x + this.size / 2, y + this.size * 2), new point(x + this.size * 3 / 2, y + this.size * 2), new point(x + this.size * 2, y + this.size),
+                    new point(x + this.size, y), new point(x, y + this.size)]);
+                break;
+            }
+            case 'diamond': {
+                e = new polygon(c, this.toFill, [
+                    new point(x, y + this.size), new point(x + this.size, y + this.size * 2), new point(x + this.size * 2, y + this.size),
+                    new point(x + this.size, y)]);
+                break;
+            }
+            case 'line': {
+                e = new line(c, this.toFill, x + this.size, y, x + this.size, y + this.size * 2);
+                break;
+            }
+            case 'rectangle': {
+                e = new rectangle(c, this.toFill, x, y + this.size, this.size * 2, this.size);
+                break;
+            }
+            default: {
+                e = new image(this.types[ti], this.size, x, y);
+                break;
             }
         }
 

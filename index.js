@@ -1,8 +1,9 @@
-document.addEventListener('DOMContentLoaded', function (e) {
+document.addEventListener('DOMContentLoaded', function () {
     let m = new manager();
     m.getNew(new count(28, 30));
     m.getNew(new draw());
-    
+    m.getNew(new countAlive(1, 10));
+
     //disabled for now
-    //m.getNew(new pattern());
+    //m.getNew(new pattern(2, 4, 8));
 });

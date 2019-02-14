@@ -1,8 +1,8 @@
 class rectangle extends shape {
-    constructor(c, tf, x, y, r) {
+    constructor(c, tf, x, y, w, h) {
         let e = super('rect', c, tf);
-        e.setAttribute('width', r);
-        e.setAttribute('height', r);
+        e.setAttribute('width', w);
+        e.setAttribute('height', h);
         e.setAttribute('x', x);
         e.setAttribute('y', y);
 

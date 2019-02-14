@@ -1,11 +1,9 @@
 class pattern extends count {
-    constructor() {
-        const s = 8;
-
+    constructor(min, max, s) {
         super(s, s);
 
-        this.minPatterns = 2;
-        this.maxPatterns = 4;
+        this.minPatterns = min;
+        this.maxPatterns = max;
 
         this.colors = this.simpleColors;
         this.types = this.basicFiguresAndImages;
