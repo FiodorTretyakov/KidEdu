@@ -1,6 +1,6 @@
 class draw extends base {
     constructor() {
-        super();
+        super(8);
 
         this.types = this.allFigures;
     }
