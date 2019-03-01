@@ -156,53 +156,62 @@ class base {
                 break;
             }
             case '0': {
-                e = new polyline(c, [
-                    new point(x, y + this.size), new point(x + this.size, y), new point(x + this.size, y + this.size * 2)]);
+                e = new ellipse(c, x + this.size, y + this.size, this.size / 2, this.size);
                 break;
             }
             case '1': {
                 e = new polyline(c, [
-                    new point(x, y + this.size), new point(x + this.size, y), new point(x + this.size, y + this.size * 2)]);
+                    new point(x + this.size / 2, y + this.size), new point(x + this.size, y), new point(x + this.size, y + this.size * 2)]);
                 break;
             }
             case '2': {
                 e = new polyline(c, [
-                    new point(x, y + this.size), new point(x + this.size, y), new point(x + this.size, y + this.size * 2)]);
+                    new point(x + this.size / 2, y), new point(x + this.size * 3 / 2, y), new point(x + this.size * 3 / 2, y + this.size),
+                    new point(x + this.size / 2, y + this.size), new point(x + this.size / 2, y + this.size * 2), new point(x + this.size * 3 / 2, y + this.size * 2)]);
                 break;
             }
             case '3': {
                 e = new polyline(c, [
-                    new point(x, y + this.size), new point(x + this.size, y), new point(x + this.size, y + this.size * 2)]);
+                    new point(x + this.size / 2, y), new point(x + this.size * 3 / 2, y), new point(x + this.size * 3 / 2, y + this.size),
+                    new point(x + this.size / 2, y + this.size), new point(x + this.size * 3 / 2, y + this.size),
+                    new point(x + this.size * 3 / 2, y + this.size * 2), new point(x + this.size / 2, y + this.size * 2)]);
                 break;
             }
             case '4': {
                 e = new polyline(c, [
-                    new point(x, y + this.size), new point(x + this.size, y), new point(x + this.size, y + this.size * 2)]);
+                    new point(x + this.size / 2, y), new point(x + this.size / 2, y + this.size), new point(x + this.size * 3 / 2, y + this.size),
+                    new point(x + this.size * 3 / 2, y), new point(x + this.size * 3 / 2, y + this.size * 2)]);
                 break;
             }
             case '5': {
                 e = new polyline(c, [
-                    new point(x, y + this.size), new point(x + this.size, y), new point(x + this.size, y + this.size * 2)]);
+                    new point(x + this.size * 3 / 2, y), new point(x + this.size / 2, y), new point(x + this.size / 2, y + this.size),
+                    new point(x + this.size * 3 / 2, y + this.size), new point(x + this.size * 3 / 2, y + this.size * 2), new point(x + this.size / 2, y + this.size * 2)]);
                 break;
             }
             case '6': {
                 e = new polyline(c, [
-                    new point(x, y + this.size), new point(x + this.size, y), new point(x + this.size, y + this.size * 2)]);
+                    new point(x + this.size * 3 / 2, y), new point(x + this.size / 2, y), new point(x + this.size / 2, y + this.size * 2),
+                    new point(x + this.size * 3 / 2, y + this.size * 2), new point(x + this.size * 3 / 2, y + this.size), new point(x + this.size / 2, y + this.size)]);
                 break;
             }
             case '7': {
                 e = new polyline(c, [
-                    new point(x, y + this.size), new point(x + this.size, y), new point(x + this.size, y + this.size * 2)]);
+                    new point(x + this.size / 2, y), new point(x + this.size * 3 / 2, y), new point(x + this.size * 3 / 2, y + this.size * 2)]);
                 break;
             }
             case '8': {
                 e = new polyline(c, [
-                    new point(x, y + this.size), new point(x + this.size, y), new point(x + this.size, y + this.size * 2)]);
+                    new point(x + this.size / 2, y), new point(x + this.size / 2, y + this.size * 2), new point(x + this.size * 3 / 2, y + this.size * 2),
+                    new point(x + this.size * 3 / 2, y), new point(x + this.size / 2, y), new point(x + this.size / 2, y + this.size),
+                    new point(x + this.size * 3 / 2, y + this.size)]);
                 break;
             }
             case '9': {
                 e = new polyline(c, [
-                    new point(x, y + this.size), new point(x + this.size, y), new point(x + this.size, y + this.size * 2)]);
+                    new point(x + this.size / 2, y + this.size * 2), new point(x + this.size * 3 / 2, y + this.size * 2),
+                    new point(x + this.size * 3 / 2, y), new point(x + this.size / 2, y), new point(x + this.size / 2, y + this.size),
+                    new point(x + this.size * 3 / 2, y + this.size)]);
                 break;
             }
             default: {
