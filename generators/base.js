@@ -34,6 +34,10 @@ class base {
         return ['line'];
     }
 
+    get digits() {
+        return ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
+    }
+
     get basicFiguresAndImages() {
         return this.figures.concat(this.images);
     }
@@ -149,6 +153,56 @@ class base {
             }
             case 'rectangle': {
                 e = new rectangle(c, this.toFill, x, y + this.size, this.size * 2, this.size);
+                break;
+            }
+            case '0': {
+                e = new polyline(c, [
+                    new point(x, y + this.size), new point(x + this.size, y), new point(x + this.size, y + this.size * 2)]);
+                break;
+            }
+            case '1': {
+                e = new polyline(c, [
+                    new point(x, y + this.size), new point(x + this.size, y), new point(x + this.size, y + this.size * 2)]);
+                break;
+            }
+            case '2': {
+                e = new polyline(c, [
+                    new point(x, y + this.size), new point(x + this.size, y), new point(x + this.size, y + this.size * 2)]);
+                break;
+            }
+            case '3': {
+                e = new polyline(c, [
+                    new point(x, y + this.size), new point(x + this.size, y), new point(x + this.size, y + this.size * 2)]);
+                break;
+            }
+            case '4': {
+                e = new polyline(c, [
+                    new point(x, y + this.size), new point(x + this.size, y), new point(x + this.size, y + this.size * 2)]);
+                break;
+            }
+            case '5': {
+                e = new polyline(c, [
+                    new point(x, y + this.size), new point(x + this.size, y), new point(x + this.size, y + this.size * 2)]);
+                break;
+            }
+            case '6': {
+                e = new polyline(c, [
+                    new point(x, y + this.size), new point(x + this.size, y), new point(x + this.size, y + this.size * 2)]);
+                break;
+            }
+            case '7': {
+                e = new polyline(c, [
+                    new point(x, y + this.size), new point(x + this.size, y), new point(x + this.size, y + this.size * 2)]);
+                break;
+            }
+            case '8': {
+                e = new polyline(c, [
+                    new point(x, y + this.size), new point(x + this.size, y), new point(x + this.size, y + this.size * 2)]);
+                break;
+            }
+            case '9': {
+                e = new polyline(c, [
+                    new point(x, y + this.size), new point(x + this.size, y), new point(x + this.size, y + this.size * 2)]);
                 break;
             }
             default: {
