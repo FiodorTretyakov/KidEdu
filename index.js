@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', function() {
     let m = new manager();
     m.getNew(new count(1, 20));
     m.getNew(new draw());

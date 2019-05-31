@@ -16,7 +16,7 @@ class pattern extends count {
     createLayout() {
         let r = [];
         for (let i = 0; i < this.rows; i++) {
-            let t =  Math.floor((Math.random() * 5));
+            let t = Math.floor((Math.random() * 5));
 
             let cs = [];
             let ss = [];
@@ -53,7 +53,7 @@ class pattern extends count {
         let aD, bD;
         if (t == 0) {
             aD = this.colors;
-            bD = this.types;    
+            bD = this.types;
         } else {
             aD = this.types;
             bD = this.colors;
