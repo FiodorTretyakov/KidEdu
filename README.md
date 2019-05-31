@@ -19,10 +19,19 @@ Every page contain many exercises, but only the same type.
 
 ## Usage
 
-To start, open the index.html file in your browser and it will randomly generate the exercises. You should just print them and give to your kid!
+To start, open the `index.html` file in your browser and it will randomly generate the exercises. You should just print them and give to your kid!
 
 ## Technical Decisions
 
 * I use JavaScript, because of it perfectly aligns my needs: just ready-to-print A4 pages with images and the vanilla one, because of I don't need any complex things;
 * I use ES2015 implementation with classes, extending, factories, properties, because of it is very convenient, transparent and allow me write less code;
 * I use ready SVG images and created my own SVG images on the fly using embedded SVG functions, in case of I need scale them (in future versions);
+
+## Implementation
+
+* There and `index.html` as executable and entry point to load all the scripts;
+* `index.js` is the place where I add new generators of exercises;
+* `manager.js` is the wrapper for generator, allow to render it at the page properly;
+* `generators/` is the folder of all types of exercises include abstract base generator;
+* `images/` is a set of ready SVG images;
+* `shapes/` is a set of wrappers for basic SVG shapes and base entities like point, shape and image wrapper;

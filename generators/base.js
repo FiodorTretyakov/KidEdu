@@ -1,5 +1,8 @@
 class base {
     constructor(max) {
+        if (new.target === base) {
+            throw new TypeError("Cannot construct base instances directly");
+        }
         this.size = Math.floor(svg.width / max / 3);
 
         this.types = this.allTypes;
@@ -62,7 +65,8 @@ class base {
             'LightPink', 'LightSalmon', 'LightSeaGreen', 'LightSkyBlue', 'LightSteelBlue', 'Lime', 'LimeGreen', 'Magenta', 'MediumAquaMarine',
             'MediumOrchid', 'MediumPurple', 'MediumSeaGreen', 'MediumSpringGreen', 'MediumTurquoise', 'MediumVioletRed', 'OliveDrab',
             'OrangeRed', 'Orchid', 'PaleVioletRed', 'Peru', 'RosyBrown', 'RoyalBlue', 'Salmon', 'SandyBrown', 'SeaGreen', 'SpringGreen', 'Tomato',
-            'Turquoise', , 'YellowGreen']
+            'Turquoise', , 'YellowGreen'
+        ]
     }
 
     get toFill() {
@@ -123,101 +127,130 @@ class base {
 
         let ind = this.types[ti];
         switch (ind) {
-            case 'circle': {
-                e = new circle(c, this.toFill, x + this.size, y + this.size, this.size);
-                break;
-            }
-            case 'square': {
-                e = new rectangle(c, this.toFill, x, y, this.size * 2, this.size * 2);
-                break;
-            }
-            case 'triangle': {
-                e = new polygon(c, this.toFill, [new point(x, y + this.size * 2), new point(x + this.size, y), new point(x + this.size * 2, y + this.size * 2)]);
-                break;
-            }
-            case 'pentagon': {
-                e = new polygon(c, this.toFill, [
-                    new point(x + this.size / 2, y + this.size * 2), new point(x + this.size * 3 / 2, y + this.size * 2), new point(x + this.size * 2, y + this.size),
-                    new point(x + this.size, y), new point(x, y + this.size)]);
-                break;
-            }
-            case 'diamond': {
-                e = new polygon(c, this.toFill, [
-                    new point(x, y + this.size), new point(x + this.size, y + this.size * 2), new point(x + this.size * 2, y + this.size),
-                    new point(x + this.size, y)]);
-                break;
-            }
-            case 'line': {
-                e = new line(c, this.toFill, x + this.size, y, x + this.size, y + this.size * 2);
-                break;
-            }
-            case 'rectangle': {
-                e = new rectangle(c, this.toFill, x, y + this.size, this.size * 2, this.size);
-                break;
-            }
-            case '0': {
-                e = new ellipse(c, x + this.size, y + this.size, this.size / 2, this.size);
-                break;
-            }
-            case '1': {
-                e = new polyline(c, [
-                    new point(x + this.size / 2, y + this.size), new point(x + this.size, y), new point(x + this.size, y + this.size * 2)]);
-                break;
-            }
-            case '2': {
-                e = new polyline(c, [
-                    new point(x + this.size / 2, y), new point(x + this.size * 3 / 2, y), new point(x + this.size * 3 / 2, y + this.size),
-                    new point(x + this.size / 2, y + this.size), new point(x + this.size / 2, y + this.size * 2), new point(x + this.size * 3 / 2, y + this.size * 2)]);
-                break;
-            }
-            case '3': {
-                e = new polyline(c, [
-                    new point(x + this.size / 2, y), new point(x + this.size * 3 / 2, y), new point(x + this.size * 3 / 2, y + this.size),
-                    new point(x + this.size / 2, y + this.size), new point(x + this.size * 3 / 2, y + this.size),
-                    new point(x + this.size * 3 / 2, y + this.size * 2), new point(x + this.size / 2, y + this.size * 2)]);
-                break;
-            }
-            case '4': {
-                e = new polyline(c, [
-                    new point(x + this.size / 2, y), new point(x + this.size / 2, y + this.size), new point(x + this.size * 3 / 2, y + this.size),
-                    new point(x + this.size * 3 / 2, y), new point(x + this.size * 3 / 2, y + this.size * 2)]);
-                break;
-            }
-            case '5': {
-                e = new polyline(c, [
-                    new point(x + this.size * 3 / 2, y), new point(x + this.size / 2, y), new point(x + this.size / 2, y + this.size),
-                    new point(x + this.size * 3 / 2, y + this.size), new point(x + this.size * 3 / 2, y + this.size * 2), new point(x + this.size / 2, y + this.size * 2)]);
-                break;
-            }
-            case '6': {
-                e = new polyline(c, [
-                    new point(x + this.size * 3 / 2, y), new point(x + this.size / 2, y), new point(x + this.size / 2, y + this.size * 2),
-                    new point(x + this.size * 3 / 2, y + this.size * 2), new point(x + this.size * 3 / 2, y + this.size), new point(x + this.size / 2, y + this.size)]);
-                break;
-            }
-            case '7': {
-                e = new polyline(c, [
-                    new point(x + this.size / 2, y), new point(x + this.size * 3 / 2, y), new point(x + this.size * 3 / 2, y + this.size * 2)]);
-                break;
-            }
-            case '8': {
-                e = new polyline(c, [
-                    new point(x + this.size / 2, y), new point(x + this.size / 2, y + this.size * 2), new point(x + this.size * 3 / 2, y + this.size * 2),
-                    new point(x + this.size * 3 / 2, y), new point(x + this.size / 2, y), new point(x + this.size / 2, y + this.size),
-                    new point(x + this.size * 3 / 2, y + this.size)]);
-                break;
-            }
-            case '9': {
-                e = new polyline(c, [
-                    new point(x + this.size / 2, y + this.size * 2), new point(x + this.size * 3 / 2, y + this.size * 2),
-                    new point(x + this.size * 3 / 2, y), new point(x + this.size / 2, y), new point(x + this.size / 2, y + this.size),
-                    new point(x + this.size * 3 / 2, y + this.size)]);
-                break;
-            }
-            default: {
-                e = new image(this.types[ti], this.size, x, y);
-                break;
-            }
+            case 'circle':
+                {
+                    e = new circle(c, this.toFill, x + this.size, y + this.size, this.size);
+                    break;
+                }
+            case 'square':
+                {
+                    e = new rectangle(c, this.toFill, x, y, this.size * 2, this.size * 2);
+                    break;
+                }
+            case 'triangle':
+                {
+                    e = new polygon(c, this.toFill, [new point(x, y + this.size * 2), new point(x + this.size, y), new point(x + this.size * 2, y + this.size * 2)]);
+                    break;
+                }
+            case 'pentagon':
+                {
+                    e = new polygon(c, this.toFill, [
+                        new point(x + this.size / 2, y + this.size * 2), new point(x + this.size * 3 / 2, y + this.size * 2), new point(x + this.size * 2, y + this.size),
+                        new point(x + this.size, y), new point(x, y + this.size)
+                    ]);
+                    break;
+                }
+            case 'diamond':
+                {
+                    e = new polygon(c, this.toFill, [
+                        new point(x, y + this.size), new point(x + this.size, y + this.size * 2), new point(x + this.size * 2, y + this.size),
+                        new point(x + this.size, y)
+                    ]);
+                    break;
+                }
+            case 'line':
+                {
+                    e = new line(c, this.toFill, x + this.size, y, x + this.size, y + this.size * 2);
+                    break;
+                }
+            case 'rectangle':
+                {
+                    e = new rectangle(c, this.toFill, x, y + this.size, this.size * 2, this.size);
+                    break;
+                }
+            case '0':
+                {
+                    e = new ellipse(c, x + this.size, y + this.size, this.size / 2, this.size);
+                    break;
+                }
+            case '1':
+                {
+                    e = new polyline(c, [
+                        new point(x + this.size / 2, y + this.size), new point(x + this.size, y), new point(x + this.size, y + this.size * 2)
+                    ]);
+                    break;
+                }
+            case '2':
+                {
+                    e = new polyline(c, [
+                        new point(x + this.size / 2, y), new point(x + this.size * 3 / 2, y), new point(x + this.size * 3 / 2, y + this.size),
+                        new point(x + this.size / 2, y + this.size), new point(x + this.size / 2, y + this.size * 2), new point(x + this.size * 3 / 2, y + this.size * 2)
+                    ]);
+                    break;
+                }
+            case '3':
+                {
+                    e = new polyline(c, [
+                        new point(x + this.size / 2, y), new point(x + this.size * 3 / 2, y), new point(x + this.size * 3 / 2, y + this.size),
+                        new point(x + this.size / 2, y + this.size), new point(x + this.size * 3 / 2, y + this.size),
+                        new point(x + this.size * 3 / 2, y + this.size * 2), new point(x + this.size / 2, y + this.size * 2)
+                    ]);
+                    break;
+                }
+            case '4':
+                {
+                    e = new polyline(c, [
+                        new point(x + this.size / 2, y), new point(x + this.size / 2, y + this.size), new point(x + this.size * 3 / 2, y + this.size),
+                        new point(x + this.size * 3 / 2, y), new point(x + this.size * 3 / 2, y + this.size * 2)
+                    ]);
+                    break;
+                }
+            case '5':
+                {
+                    e = new polyline(c, [
+                        new point(x + this.size * 3 / 2, y), new point(x + this.size / 2, y), new point(x + this.size / 2, y + this.size),
+                        new point(x + this.size * 3 / 2, y + this.size), new point(x + this.size * 3 / 2, y + this.size * 2), new point(x + this.size / 2, y + this.size * 2)
+                    ]);
+                    break;
+                }
+            case '6':
+                {
+                    e = new polyline(c, [
+                        new point(x + this.size * 3 / 2, y), new point(x + this.size / 2, y), new point(x + this.size / 2, y + this.size * 2),
+                        new point(x + this.size * 3 / 2, y + this.size * 2), new point(x + this.size * 3 / 2, y + this.size), new point(x + this.size / 2, y + this.size)
+                    ]);
+                    break;
+                }
+            case '7':
+                {
+                    e = new polyline(c, [
+                        new point(x + this.size / 2, y), new point(x + this.size * 3 / 2, y), new point(x + this.size * 3 / 2, y + this.size * 2)
+                    ]);
+                    break;
+                }
+            case '8':
+                {
+                    e = new polyline(c, [
+                        new point(x + this.size / 2, y), new point(x + this.size / 2, y + this.size * 2), new point(x + this.size * 3 / 2, y + this.size * 2),
+                        new point(x + this.size * 3 / 2, y), new point(x + this.size / 2, y), new point(x + this.size / 2, y + this.size),
+                        new point(x + this.size * 3 / 2, y + this.size)
+                    ]);
+                    break;
+                }
+            case '9':
+                {
+                    e = new polyline(c, [
+                        new point(x + this.size / 2, y + this.size * 2), new point(x + this.size * 3 / 2, y + this.size * 2),
+                        new point(x + this.size * 3 / 2, y), new point(x + this.size / 2, y), new point(x + this.size / 2, y + this.size),
+                        new point(x + this.size * 3 / 2, y + this.size)
+                    ]);
+                    break;
+                }
+            default:
+                {
+                    e = new image(this.types[ti], this.size, x, y);
+                    break;
+                }
         }
 
         return e;
